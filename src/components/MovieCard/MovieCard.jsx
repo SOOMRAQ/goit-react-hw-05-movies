@@ -28,14 +28,16 @@ const MovieCard = ({ movie }) => {
           </SkeletonTheme>
         </StyledMovieCardContainer>
       ) : (
-        <Link to={`movie/${movie.id}`}>
+        <Link to={`/movie/${movie.id}`}>
           <StyledMovieCardContainer>
             <StyledMovieCardImage
               className="cards__img"
-              src={`https://image.tmdb.org/t/p/original${
-                movie ? movie.poster_path : ''
-              }`}
-              alt=""
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/original${movie.poster_path}`
+                  : 'https://www.jakartaplayers.org/uploads/1/2/5/5/12551960/2297419_orig.jpg'
+              }
+              alt="Movie Poster"
             />
             <StyledMovieCardOverlay>
               <StyledMovieCardTitle>

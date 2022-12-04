@@ -1,36 +1,31 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import {
+  StyledCompanyTitle,
   StyledHeader,
   StyledLogo,
   StyledNavLink,
   StyledNavList,
 } from './AppBar.styled';
+import logo from '../../assets/popcorn-war.png';
 
 const navItems = [
   {
-    href: '/movies/popular',
-    text: 'Popular',
+    href: '/',
+    text: 'Home',
   },
   {
-    href: '/movies/top-rated',
-    text: 'Top Rated',
-  },
-  {
-    href: '/movies/upcoming',
-    text: 'Upcoming',
+    href: '/movies',
+    text: 'Movies',
   },
 ];
 
 const AppBar = () => {
   return (
     <StyledHeader className="header">
-      <NavLink to="/">
-        <StyledLogo
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
-          alt="Logo"
-        />
-      </NavLink>
+      <StyledCompanyTitle to="/">
+        <StyledLogo src={logo} alt="Logo" />
+        <p>POPCORN WAR</p>
+      </StyledCompanyTitle>
       <nav>
         <StyledNavList>
           {navItems.map(({ href, text }) => (

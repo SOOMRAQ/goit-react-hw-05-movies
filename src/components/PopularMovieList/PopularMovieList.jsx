@@ -5,25 +5,18 @@ import {
   StyledMovieList,
   StyledMovieListContainer,
   StyledMovieListTitle,
-} from './MovieList.styled';
+} from './PopularMovieList.styled';
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
-  const { type } = useParams();
 
   useEffect(() => {
     getData();
   }, []);
 
-  useEffect(() => {
-    getData();
-  }, [type]);
-
   const getData = () => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${
-        type ? type : 'popular'
-      }?api_key=f381e2d7545c3f7238b0aa9291356ecc&language=en-US`
+      `https://api.themoviedb.org/3/movie/popular?api_key=f381e2d7545c3f7238b0aa9291356ecc&language=en-US`
     )
       .then(res => res.json())
       .then(data => setMovieList(data.results));
@@ -31,9 +24,7 @@ const MovieList = () => {
 
   return (
     <StyledMovieListContainer>
-      <StyledMovieListTitle>
-        {(type ? type : 'POPULAR').toUpperCase()}
-      </StyledMovieListTitle>
+      <StyledMovieListTitle>Popular Movies</StyledMovieListTitle>
       <StyledMovieList>
         {movieList.map(movie => (
           <MovieCard key={movie.id} movie={movie} />

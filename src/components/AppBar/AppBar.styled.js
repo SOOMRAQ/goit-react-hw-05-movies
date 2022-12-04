@@ -2,21 +2,33 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 70px;
   min-height: 80px;
+  background-color: rgba(0, 0, 0, 0.85);
   padding: 0 60px;
 `;
 
 export const StyledLogo = styled.img`
-  width: 100px;
+  width: 50px;
 `;
 
 export const StyledNavList = styled.ul`
   display: flex;
   align-items: center;
   gap: 40px;
+`;
+
+export const StyledCompanyTitle = styled(NavLink)`
+  display: flex;
+  gap: 10px;
+  align-items: center;
 `;
 
 export const StyledNavLink = styled(NavLink)`
