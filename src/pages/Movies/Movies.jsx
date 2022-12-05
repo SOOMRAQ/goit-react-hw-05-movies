@@ -17,7 +17,10 @@ const Movies = () => {
       return;
     }
     fetch(
-      `https://api.themoviedb.org/3/search/movie/?api_key=f381e2d7545c3f7238b0aa9291356ecc&language=en-US&query=${movieName}`
+      `https://api.themoviedb.org/3/search/movie/?api_key=f381e2d7545c3f7238b0aa9291356ecc&language=en-US&query=${movieName}`,
+      {
+        referrerPolicy: 'unsafe-url',
+      }
     )
       .then(res => res.json())
       .then(data => setMovies(data.results));
