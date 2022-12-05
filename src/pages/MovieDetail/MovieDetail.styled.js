@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import BackIconButton from 'components/BackIconButton';
+import { NavLink } from 'react-router-dom';
 
 export const StyledMoviePage = styled.div`
   width: 100%;
@@ -7,10 +9,12 @@ export const StyledMoviePage = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 80px;
+  padding-bottom: 80px;
 `;
 
 export const StyledMovieIntro = styled.div`
   width: 80%;
+  position: relative;
 `;
 
 export const StyledMovieBackdrop = styled.img`
@@ -21,11 +25,17 @@ export const StyledMovieBackdrop = styled.img`
 `;
 
 export const StyledMovieDetailContainer = styled.div`
-  position: relative;
-  bottom: 225px;
+  position: absolute;
+  top: 300px;
   display: flex;
   align-items: center;
   width: 75%;
+`;
+
+export const StyledGoBackBtn = styled(BackIconButton)`
+  position: absolute;
+  top: 10px;
+  left: 10px;
 `;
 
 export const StyledMoviePosterContainer = styled.div`
@@ -51,6 +61,7 @@ export const StyledMovieCommonDetails = styled.div`
   flex-direction: column;
   gap: 0.5rem;
   text-shadow: 0px 0px 5px #000000;
+  padding-top: 50px;
 `;
 
 export const StyledMovieName = styled.h2`
@@ -87,4 +98,26 @@ export const StyledSynopsisTitle = styled.h3`
   display: flex;
   position: relative;
   align-items: center;
+`;
+
+export const StyledCastReviewsList = styled.ul`
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 40px;
+  margin-top: 200px;
+`;
+
+export const StyledCastReviewsItem = styled.li`
+  text-transform: uppercase;
+`;
+
+export const StyledLink = styled(NavLink)`
+  transition: color 500ms ease;
+  &:hover {
+    color: yellow;
+  }
+  &.active {
+    color: yellow;
+  }
 `;

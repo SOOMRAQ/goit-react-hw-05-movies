@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import {
+  StyledCastReviewsItem,
+  StyledCastReviewsList,
+  StyledGoBackBtn,
+  StyledLink,
   StyledMovieBackdrop,
   StyledMovieCommonDetails,
   StyledMovieDetailContainer,
@@ -16,22 +20,29 @@ import {
   StyledMovieVoteCount,
   StyledSynopsisTitle,
 } from './MovieDetail.styled';
+import { ReactComponent as ArrowBackIcon } from '../../assets/icons/arrow-back.svg';
 
 const MovieDetail = () => {
   const [currentMovieDetail, setMovieDetail] = useState();
   const { id } = useParams();
 
   useEffect(() => {
-    getData();
-    window.scrollTo(0, 0);
-  }, []);
-
-  const getData = () => {
     fetch(
       `https://api.themoviedb.org/3/movie/${id}?api_key=f381e2d7545c3f7238b0aa9291356ecc&language=en-US`
     )
       .then(res => res.json())
       .then(data => setMovieDetail(data));
+  }, [id]);
+
+  const handleClick = () => {
+    setTimeout(() => {
+      if (!document.querySelector('.wrapper')) {
+        return;
+      }
+      document.querySelector('.wrapper').scrollIntoView({
+        behavior: 'smooth',
+      });
+    }, 500);
   };
   return (
     <StyledMoviePage>
@@ -41,7 +52,11 @@ const MovieDetail = () => {
             currentMovieDetail ? currentMovieDetail.backdrop_path : ''
           }`}
         />
+        <StyledGoBackBtn aria-label="Go Back">
+          <ArrowBackIcon width="20" height="20" />
+        </StyledGoBackBtn>
       </StyledMovieIntro>
+
       <StyledMovieDetailContainer>
         <StyledMoviePosterContainer>
           <StyledMoviePoster
@@ -94,6 +109,19 @@ const MovieDetail = () => {
           </StyledMovieSynopsis>
         </StyledMovieDetailInfo>
       </StyledMovieDetailContainer>
+      <StyledCastReviewsList>
+        <StyledCastReviewsItem>
+          <StyledLink to="cast" onClick={handleClick}>
+            Cast
+          </StyledLink>
+        </StyledCastReviewsItem>
+        <StyledCastReviewsItem>
+          <StyledLink to="reviews" onClick={handleClick}>
+            Reviews
+          </StyledLink>
+        </StyledCastReviewsItem>
+      </StyledCastReviewsList>
+      <Outlet />
     </StyledMoviePage>
   );
 };

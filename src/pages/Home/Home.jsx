@@ -55,7 +55,7 @@ const Home = () => {
                 <StyledPosterRuntime>
                   {movie ? movie.release_date || 'Translating Now' : ''}
                   <StyledPosterRating>
-                    {movie ? movie.vote_average : ''}
+                    {movie ? movie.vote_average.toFixed(1) : ''}
                     <i className="fas fa-star" />{' '}
                   </StyledPosterRating>
                 </StyledPosterRuntime>

@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 export const StyledMovieListContainer = styled.div`
   padding: 80px 3rem 3rem 3rem;

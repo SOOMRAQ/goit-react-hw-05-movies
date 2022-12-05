@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
 import MovieCard from 'components/MovieCard';
 import {
   StyledMovieList,
@@ -7,8 +6,6 @@ import {
 } from './SearchMoviesList.styled';
 
 const SearchMoviesList = ({ data }) => {
-  const location = useLocation();
-
   if (!data) {
     return;
   }
