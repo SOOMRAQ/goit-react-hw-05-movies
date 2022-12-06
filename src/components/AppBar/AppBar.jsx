@@ -21,7 +21,7 @@ const navItems = [
 
 const AppBar = () => {
   return (
-    <StyledHeader className="header">
+    <StyledHeader>
       <StyledCompanyTitle to="/">
         <StyledLogo src={logo} alt="Logo" />
         <p>POPCORN WAR</p>

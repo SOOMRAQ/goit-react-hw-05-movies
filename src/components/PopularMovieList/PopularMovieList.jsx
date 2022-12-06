@@ -5,9 +5,11 @@ import {
   StyledMovieListContainer,
   StyledMovieListTitle,
 } from './PopularMovieList.styled';
+import { useLocation } from 'react-router-dom';
 
 const MovieList = () => {
   const [movieList, setMovieList] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     getData();
@@ -26,7 +28,7 @@ const MovieList = () => {
       <StyledMovieListTitle>Popular Movies</StyledMovieListTitle>
       <StyledMovieList>
         {movieList.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} state={{ from: location }} />
         ))}
       </StyledMovieList>
     </StyledMovieListContainer>

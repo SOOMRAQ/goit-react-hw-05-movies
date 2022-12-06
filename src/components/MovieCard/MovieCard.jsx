@@ -11,6 +11,7 @@ import {
   StyledMovieCardRuntime,
   StyledMovieCardTitle,
 } from './MovieCard.styled';
+import PropTypes from 'prop-types';
 
 const MovieCard = ({ movie }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,3 +63,7 @@ const MovieCard = ({ movie }) => {
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  movie: PropTypes.object,
+};

@@ -4,8 +4,10 @@ import {
   StyledMovieList,
   StyledMovieListContainer,
 } from './SearchMoviesList.styled';
+import { useLocation } from 'react-router-dom';
 
 const SearchMoviesList = ({ data }) => {
+  const location = useLocation();
   if (!data) {
     return;
   }
@@ -14,7 +16,7 @@ const SearchMoviesList = ({ data }) => {
     <StyledMovieListContainer>
       <StyledMovieList>
         {data.map(movie => (
-          <MovieCard key={movie.id} movie={movie} />
+          <MovieCard key={movie.id} movie={movie} state={{ from: location }} />
         ))}
       </StyledMovieList>
     </StyledMovieListContainer>

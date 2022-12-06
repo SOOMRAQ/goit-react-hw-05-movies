@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   StyledCastReviewsItem,
   StyledCastReviewsList,
@@ -20,11 +20,14 @@ import {
   StyledMovieVoteCount,
   StyledSynopsisTitle,
 } from './MovieDetail.styled';
+
 import { ReactComponent as ArrowBackIcon } from '../../assets/icons/arrow-back.svg';
 
 const MovieDetail = () => {
   const [currentMovieDetail, setMovieDetail] = useState();
   const { id } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     fetch(
@@ -52,7 +55,7 @@ const MovieDetail = () => {
             currentMovieDetail ? currentMovieDetail.backdrop_path : ''
           }`}
         />
-        <StyledGoBackBtn aria-label="Go Back">
+        <StyledGoBackBtn aria-label="Go Back" to={backLinkHref}>
           <ArrowBackIcon width="20" height="20" />
         </StyledGoBackBtn>
       </StyledMovieIntro>
@@ -75,7 +78,7 @@ const MovieDetail = () => {
             </div>
             <div className="movie__rating">
               {currentMovieDetail ? currentMovieDetail.vote_average : ''}{' '}
-              <i class="fas fa-star" />
+              <i className="fas fa-star" />
               <StyledMovieVoteCount>
                 {currentMovieDetail
                   ? '(' + currentMovieDetail.vote_count + ') votes'

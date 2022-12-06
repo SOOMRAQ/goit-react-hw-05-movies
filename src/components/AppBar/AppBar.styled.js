@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const StyledHeader = styled.header`
+export const StyledHeader = styled.div`
   position: fixed;
   top: 0;
   left: 0;
