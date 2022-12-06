@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/goit-react-hw-05-movies/static/css/main.e9d2cc41.css",
-    "main.js": "/goit-react-hw-05-movies/static/js/main.718fa1ad.js",
+    "main.js": "/goit-react-hw-05-movies/static/js/main.c9e3de0b.js",
     "static/media/main-bg.jpg": "/goit-react-hw-05-movies/static/media/main-bg.70d219a67fc96e67433d.jpg",
     "static/media/popcorn-war.png": "/goit-react-hw-05-movies/static/media/popcorn-war.93c3cdeb817c42c00c68.png",
     "index.html": "/goit-react-hw-05-movies/index.html",
     "static/media/arrow-back.svg": "/goit-react-hw-05-movies/static/media/arrow-back.19271f65ffceaefee0cb6c0b95a2a945.svg",
     "main.e9d2cc41.css.map": "/goit-react-hw-05-movies/static/css/main.e9d2cc41.css.map",
-    "main.718fa1ad.js.map": "/goit-react-hw-05-movies/static/js/main.718fa1ad.js.map"
+    "main.c9e3de0b.js.map": "/goit-react-hw-05-movies/static/js/main.c9e3de0b.js.map"
   },
   "entrypoints": [
     "static/css/main.e9d2cc41.css",
-    "static/js/main.718fa1ad.js"
+    "static/js/main.c9e3de0b.js"
   ]
 }
