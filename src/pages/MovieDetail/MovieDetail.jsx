@@ -47,14 +47,17 @@ const MovieDetail = () => {
       });
     }, 500);
   };
+
+  const backdrop = currentMovieDetail?.backdrop_path || '';
+  const poster = currentMovieDetail?.poster_path || '';
   return (
     <StyledMoviePage>
       <StyledMovieIntro>
-        <StyledMovieBackdrop
-          src={`https://image.tmdb.org/t/p/original${
-            currentMovieDetail ? currentMovieDetail.backdrop_path : ''
-          }`}
-        />
+        {backdrop && (
+          <StyledMovieBackdrop
+            src={`https://image.tmdb.org/t/p/original${backdrop}`}
+          />
+        )}
         <StyledGoBackBtn aria-label="Go Back" to={backLinkHref}>
           <ArrowBackIcon width="20" height="20" />
         </StyledGoBackBtn>
@@ -62,11 +65,11 @@ const MovieDetail = () => {
 
       <StyledMovieDetailContainer>
         <StyledMoviePosterContainer>
-          <StyledMoviePoster
-            src={`https://image.tmdb.org/t/p/original${
-              currentMovieDetail ? currentMovieDetail.poster_path : ''
-            }`}
-          />
+          {poster && (
+            <StyledMoviePoster
+              src={`https://image.tmdb.org/t/p/original${poster}`}
+            />
+          )}
         </StyledMoviePosterContainer>
         <StyledMovieDetailInfo>
           <StyledMovieCommonDetails>
